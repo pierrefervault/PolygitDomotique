@@ -1,20 +1,21 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AjoutTache : MonoBehaviour {
 
     public Text[] nomTaches;
     public Text[] statuts;
     public Text[] recurrences;
-    public Tache[] taches;
+    public List<Tache> taches;
 
     // Use this for initialization
     void Start()
     {
         foreach (Tache t in taches)
         {
-            addTache(t);
+            addTacheInPanel(t);
         }
     }
 
@@ -23,7 +24,7 @@ public class AjoutTache : MonoBehaviour {
     {
     }
 
-    void addTache(Tache t)
+    public void addTacheInPanel(Tache t)
     {
         for (int i = 0; i < this.nomTaches.Length; i++)
         {
@@ -35,5 +36,11 @@ public class AjoutTache : MonoBehaviour {
                 i = this.nomTaches.Length;
             }
         }
+    }
+
+    public void addTacheInTaches(Tache t)
+    {
+        taches.Add(t);
+        addTacheInPanel(t);
     }
 }

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Maison.unity
+- path: Assets/PolygitDomotique.unity
   isLoaded: 1
   isActive: 1

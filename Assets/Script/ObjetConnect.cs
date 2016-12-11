@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public abstract class ObjetConnect : MonoBehaviour {
 
+    public string nomObjet;
     public List<TacheObjet> taches;
 
 	// Use this for initialization

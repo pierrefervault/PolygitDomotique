@@ -14,15 +14,15 @@ public class ControllerLamp : ObjetConnect {
 
     public override void execute(int idTache)
     {
-        if (idTache == 0)
+        if (idTache == 0) //Eteindre
         {
             light.intensity = 0;
         }
-        if (idTache == 1)
+        if (idTache == 1) //Allumer
         {
             light.intensity = baseIntens;
         }
-        if (idTache == 2)
+        if (idTache == 2) //Modification lumière
         {
             baseIntens = intens;
             light.intensity = intens;

@@ -22,6 +22,10 @@ public class AjoutTache : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        foreach(Tache t in taches)
+        {
+            t.Update();
+        }
     }
 
     public void addTacheInPanel(Tache t)

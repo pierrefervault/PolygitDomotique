@@ -8,6 +8,7 @@ public class AjoutTache : MonoBehaviour {
     public Text[] nomTaches;
     public Text[] statuts;
     public Text[] recurrences;
+	public Slider[] sliders;
     public List<Tache> taches;
 
     // Use this for initialization
@@ -25,6 +26,7 @@ public class AjoutTache : MonoBehaviour {
         foreach(Tache t in taches)
         {
             t.Update();
+
         }
     }
 
@@ -41,10 +43,36 @@ public class AjoutTache : MonoBehaviour {
             }
         }
     }
+	public void removeTacheInPanel(Tache t){
+		for (int i = 0; i < this.nomTaches.Length; i++)
+		{
+			if (nomTaches[i].text.Equals(t.nomTache))
+			{
+				nomTaches[i].text = "";
+				statuts[i].text = "";
+				recurrences[i].text = "";
+				sliders [i].value = 0;
+
+			}
+		}
+		taches.Remove (t);
+
+	}
 
     public void addTacheInTaches(Tache t)
     {
         taches.Add(t);
         addTacheInPanel(t);
     }
+	public void updateProgress(Tache t)
+	{
+		for (int i = 0; i < this.nomTaches.Length; i++)
+		{
+			if (nomTaches[i].text.Equals(t.nomTache))
+			{
+				sliders [i].value = (t.timer * 1.0f) / (t.temps * 1.0f);
+
+			}
+		}
+	}
 }

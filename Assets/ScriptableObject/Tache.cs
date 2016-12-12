@@ -15,7 +15,7 @@ public class Tache : ScriptableObject {
     public ObjetConnect cible;
     public int temps;
 
-    private int timer;
+    public int timer;
 
 	// Use this for initialization
 	void Start () {
@@ -32,8 +32,10 @@ public class Tache : ScriptableObject {
                 started = true;
             }
             timer++;
+			GameObject.FindGameObjectWithTag("panelTache").GetComponent<AjoutTache>().updateProgress(this);
             if(timer >= temps)
             {
+				GameObject.FindGameObjectWithTag("panelTache").GetComponent<AjoutTache>().removeTacheInPanel(this);
                 Destroy(this);
             }
         }

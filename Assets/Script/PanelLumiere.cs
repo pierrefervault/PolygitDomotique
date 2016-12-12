@@ -26,7 +26,10 @@ public class PanelLumiere : MonoBehaviour {
 
     void OnEnable()
     {
-        cible = (ControllerLamp)owner.objectList[owner.appareil.value];
+        if(owner.objectList.Length > 0)
+        {
+            cible = (ControllerLamp)owner.objectList[owner.appareil.value];
+        }
         //owner.objectList[owner.appareil.value].taches[owner.tache.value]
     }
 

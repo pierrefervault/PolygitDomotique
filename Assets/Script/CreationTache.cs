@@ -82,7 +82,7 @@ public class CreationTache : MonoBehaviour {
             heure.gameObject.SetActive(true);
             minute.gameObject.SetActive(true);
         }
-
+        changeTache();
     }
 
     public void OnEnable()

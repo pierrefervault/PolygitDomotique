@@ -12,7 +12,7 @@ public class PanelCamera : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        cameraRender = GetComponentInChildren<RawImage>();
+
 	}
 	
 	// Update is called once per frame
@@ -22,6 +22,7 @@ public class PanelCamera : MonoBehaviour {
 
     void OnEnable()
     {
+        cameraRender = GetComponentInChildren<RawImage>();
         camerasDrop.ClearOptions();
         cameras = GameObject.FindObjectsOfType<CameraSurv>();
         List<string> nomsCameras = new List<string>();
@@ -30,7 +31,7 @@ public class PanelCamera : MonoBehaviour {
             nomsCameras.Add(cs.nom);
         }
         camerasDrop.AddOptions(nomsCameras);
-        changeCamera();
+        cameraRender.texture = cameras[0].cameraTexture;
     }
 
     public void changeCamera()

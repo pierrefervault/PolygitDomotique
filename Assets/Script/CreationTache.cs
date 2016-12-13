@@ -174,5 +174,10 @@ public class CreationTache : MonoBehaviour {
             GameObject.FindGameObjectWithTag("panelTache").GetComponent<AjoutTache>().addTacheInTaches(newTask);
         }
     }
-
+	public void ajouteTacheCafe(){
+		GameObject.Find ("panelAjoutTache").SetActive (true);
+		GameObject.Find ("panelInfosAppareil").SetActive (false);
+		GameObject.Find ("ChoixAppareil").GetComponent<Dropdown> ().value = 0;
+		GameObject.Find ("ChoixTache").GetComponent<Dropdown> ().value = 0;
+	}
 }

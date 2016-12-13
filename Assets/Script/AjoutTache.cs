@@ -14,7 +14,7 @@ public class AjoutTache : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        foreach (Tache t in taches.taches)
+		foreach (Tache t in FindObjectOfType<ReservoirTaches>().taches)
         {
             addTacheInPanel(t);
         }
@@ -55,7 +55,7 @@ public class AjoutTache : MonoBehaviour {
 
     public void addTacheInTaches(Tache t)
     {
-        taches.taches.Add(t);
+		FindObjectOfType<ReservoirTaches>().taches.Add(t);
         addTacheInPanel(t);
     }
 	public void updateProgress(Tache t)
@@ -68,5 +68,9 @@ public class AjoutTache : MonoBehaviour {
 
 			}
 		}
+	}
+
+	public void demarrerCafe(){
+
 	}
 }

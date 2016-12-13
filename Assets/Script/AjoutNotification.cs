@@ -6,18 +6,34 @@ public class AjoutNotification : MonoBehaviour {
 
     public Image[] images;
     public Text[] texts;
-    public Notification[] notifications;
 
-	// Use this for initialization
-	void Start () {
-	    foreach(Notification n in notifications)
+    private ReservoirNotifs notifs;
+
+	void OnEnable() {
+        updateNotifs();
+	}
+	
+    public void updateNotifs()
+    {
+        notifs = FindObjectOfType<ReservoirNotifs>();
+        clearNotifs();
+        foreach (Notification n in notifs.notifs)
         {
             addNotif(n);
         }
-	}
-	
+    }
+
 	// Update is called once per frame
 	void Update () {
+    }
+
+    void clearNotifs()
+    {
+        for (int i = 0; i < this.images.Length; i++)
+        {
+            images[i].sprite = null;
+            texts[i].text = null;
+        }
     }
 
     void addNotif(Notification n)

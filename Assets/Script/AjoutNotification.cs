@@ -27,6 +27,12 @@ public class AjoutNotification : MonoBehaviour {
 	void Update () {
     }
 
+    public void supprimer(int num)
+    {
+        notifs.notifs.RemoveAt(num);
+        updateNotifs();
+    }
+
     void clearNotifs()
     {
         for (int i = 0; i < this.images.Length; i++)

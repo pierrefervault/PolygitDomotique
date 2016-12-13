@@ -32,8 +32,12 @@ public class Tache : ScriptableObject {
                 started = true;
             }
             timer++;
-			GameObject.FindGameObjectWithTag("panelTache").GetComponent<AjoutTache>().updateProgress(this);
-            if(timer >= temps)
+			GameObject panel = GameObject.FindGameObjectWithTag("panelTache");
+            if (panel != null)
+            {
+                panel.GetComponent<AjoutTache>().updateProgress(this);
+            }
+            if (timer >= temps)
             {
 				GameObject.FindGameObjectWithTag("panelTache").GetComponent<AjoutTache>().removeTacheInPanel(this);
                 Destroy(this);

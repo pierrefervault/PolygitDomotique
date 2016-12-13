@@ -9,12 +9,12 @@ public class AjoutTache : MonoBehaviour {
     public Text[] statuts;
     public Text[] recurrences;
 	public Slider[] sliders;
-    public List<Tache> taches;
+    public ReservoirTaches taches;
 
     // Use this for initialization
     void Start()
     {
-        foreach (Tache t in taches)
+        foreach (Tache t in taches.taches)
         {
             addTacheInPanel(t);
         }
@@ -23,11 +23,7 @@ public class AjoutTache : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        foreach(Tache t in taches)
-        {
-            t.Update();
-
-        }
+        
     }
 
     public void addTacheInPanel(Tache t)
@@ -55,13 +51,13 @@ public class AjoutTache : MonoBehaviour {
 
 			}
 		}
-		taches.Remove (t);
+		taches.taches.Remove (t);
 
 	}
 
     public void addTacheInTaches(Tache t)
     {
-        taches.Add(t);
+        taches.taches.Add(t);
         addTacheInPanel(t);
     }
 	public void updateProgress(Tache t)

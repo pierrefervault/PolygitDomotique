@@ -51,8 +51,6 @@ public class AjoutTache : MonoBehaviour {
 
 			}
 		}
-		taches.taches.Remove (t);
-
 	}
 
     public void addTacheInTaches(Tache t)

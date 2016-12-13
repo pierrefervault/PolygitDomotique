@@ -17,6 +17,8 @@ public class Tache : ScriptableObject {
 
     public int timer;
 
+    private ReservoirNotifs notifs;
+
 	// Use this for initialization
 	void Start () {
         timer = 0;
@@ -39,7 +41,25 @@ public class Tache : ScriptableObject {
             }
             if (timer >= temps)
             {
-				GameObject.FindGameObjectWithTag("panelTache").GetComponent<AjoutTache>().removeTacheInPanel(this);
+                if (tacheObj.notif != null)
+                {
+                    notifs = FindObjectOfType<ReservoirNotifs>();
+                    notifs.notifs.Add(tacheObj.notif);
+                    AjoutNotification notifPanel = FindObjectOfType<AjoutNotification>();
+                    if(notifPanel != null)
+                    {
+                        notifPanel.updateNotifs();
+                    }
+                }
+                if (tacheObj.sendMessageAtEnd)
+                {
+                    cible.execute(tacheObj.idTacheEnd);
+                }
+                if(panel != null)
+                {
+                    panel.GetComponent<AjoutTache>().removeTacheInPanel(this);
+                }
+                FindObjectOfType<ReservoirTaches>().taches.Remove(this);
                 Destroy(this);
             }
         }

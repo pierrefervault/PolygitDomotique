@@ -133,7 +133,7 @@ public class CreationTache : MonoBehaviour {
             newTask.recurrence = reccurence.GetComponentInChildren<Text>().text;
             newTask.statut = "Statut : en cours";
             newTask.enCours = true;
-            newTask.temps = 120;
+            newTask.temps = newTask.tacheObj.temps;
             GameObject.FindGameObjectWithTag("panelTache").GetComponent<AjoutTache>().addTacheInTaches(newTask);
 
         }
